@@ -1,4 +1,4 @@
-[Topページへ](./README_JP.me)
+[Topページへ](README_JP.md)
 
 # 概要
 
