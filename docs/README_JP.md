@@ -6,4 +6,4 @@
 
 # 目次
 
-1. [Raspberry PiへのUbuntu Serverのインストール](Installation_UbuntuServer_JP.md)
+1. [Raspberry PiへのUbuntu Serverのインストール](UbuntuServer_on_RaspberryPi_JP.md)

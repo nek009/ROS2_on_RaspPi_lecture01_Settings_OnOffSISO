@@ -7,4 +7,4 @@ This is not repository for program sources, is lecture series to use ROS2 on Ras
 
 # Table of Contents
 
-1. [Installation of Ubuntu Server to Raspberry Pi](docs/Installation_UbuntuServer.md)
+1. [Installation of Ubuntu Server on Raspberry Pi](docs/UbuntuServer_on_RaspberryPi.md)
