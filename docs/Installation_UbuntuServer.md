@@ -3,7 +3,7 @@
 # Overview
 
 Raspbian OS is known as standard OS for Raspberry Pi, which is based on Debian Buster.
-But it is hard to install ROS2 on Debian, and is easy to do on Ubuntu.<br>
+But it is a little troublesome to install ROS2 on Debian, and is easy to do on Ubuntu.<br>
 Here, I introduce the installation of Ubuntu to Raspberry Pi briefly.
 
 ## For use under variable network environment
