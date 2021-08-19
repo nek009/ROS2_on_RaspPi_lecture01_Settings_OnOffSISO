@@ -96,3 +96,52 @@ $ ssh ubuntu@raspberrypi.local
 ```
 
 Here, `.`(period, dot) cannot be used as a part of hostname, ex. `rapberry.pi` cannot be used so cannot connect it by `raspberry.pi.local`.
+
+### Set hostname as you want
+If hostname changes, use following commands.
+
+For a change of hostname temporary.
+
+```shell
+$ hostname <new hostname>
+```
+
+For a change of hostname permanently, it means a name keeps changing after reboot.
+
+```shell
+$ sudo hostnamectl set-hostname <new hostname>
+```
+
+If back to an original hostname after reboot, a cloud-init module prevent a hostname from changing.
+In this case, modify a setting to change a hostname to new name as follows.
+
+* target file
+  * /etc/cloud/cloud.cfg
+* edit and modify as follows
+  * from
+    * preserve_hostname: false
+  * to
+    * preserve_hostname: true
+
+## Set ntp and time-zone
+
+1. Find ntp server, ex by using google search.
+1. Modify /etc/systemd/timesyncd.conf
+  * Especially set `NTP=`, `FallbackNTP=` is additional option.
+1. Confirm time zone where you live by following command
+  * `$ timedatectl list-timezones`
+
+And set up net and time-zone by following commands.
+
+```shell
+$ timedatectl set-ntp true # set up ntp based on timesyncd.conf
+$ sudo systemctl enable systemd-timesyncd.service
+$ sudo timedatectl set-timezone <your time zone>
+$ sudo systemctl restart systemd-timesyncd.service
+```
+
+## Update a system
+
+```shell
+$ sudo apt update && sudo apt upgrade -y
+```

@@ -88,3 +88,76 @@ $ ssh ubuntu@raspberrypi.local
 ```
 
 ここで，`.`(ピリオド，ドット)が名前の一部として使えないことに注意する．例えば，`raspberry.pi`のホスト名はだめ(`raspberry.pi.local`ではアクセスできない)．
+
+### hostnameの設定
+hostnameを変更する場合，以下のように行う．
+
+一時的に変更する場合
+
+```shell
+$ hostname <new hostname>
+```
+
+再起動しても変更した状態にする場合
+
+```shell
+$ sudo hostnamectl set-hostname <new hostname>
+```
+
+もし再起動してもとに戻ってしまう場合，a cloud-initモジュールが悪さしている．
+以下の変更を行うことで，再起動しても元に戻らないようにできる．
+
+* 設定ファイル
+  * /etc/cloud/cloud.cfg
+* 変更箇所
+  * 変更前
+    * preserve_hostname: false
+  * 変更後
+    * preserve_hostname: true
+
+### 時刻合わせ
+
+* 設定ファイル
+  * /etc/systemd/timesyncd.conf
+
+```conf: /etc/systemd/timesyncd.conf
+NTP=ntp.nict.jp
+FallbackNTP=ntp.ubuntu.com # 複数指定する場合はスペース区切りで続けて記述
+```
+
+```shell
+$ timedatectl set-ntp true
+$ sudo systemctl enable systemd-timesyncd.service
+$ sudo timedatectl set-timezone Asia/Tokyo
+$ sudo systemctl restart systemd-timesyncd.service
+```
+
+### ロケール・キーボードの設定
+[ここ](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0564)を参考に．
+
+```shell
+$ sudo locale-gen ja_JP.UTF-8
+$ sudo dpkg-reconfigure -f noninteractive locales
+$ echo "LANG=ja_JP.UTF-8" | sudo tee /etc/default/locale
+```
+
+* 設定ファイル
+  * XKBMODEL="jp106"に変更
+    * いらないかも？
+  * XKBLAYOUT="jp"に変更
+
+以下のコマンドを実行．
+
+```shell
+$ sudo dpkg-reconfigure -f noninteractive keyboard-configuration
+```
+
+
+## Update a system
+
+```shell
+$ sudo apt update && sudo apt upgrade -y
+```
+
+# その他
+[Raspberry PiのSDカードが壊れた！寿命を延ばす方法 5+1選!【運用編を追加】](https://iot-plus.net/make/raspi/extend-sdcard-lifetime-5plus1/)
