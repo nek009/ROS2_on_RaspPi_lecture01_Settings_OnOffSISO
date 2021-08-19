@@ -52,10 +52,10 @@ microSDカード，HDMI, キーボード，マウスをRapberry Piにつなげ�
 ## ネットワークの設定
 
 * 設定ファイル
-  * /etc/netplan/[50-cloud-init.yaml](../yaml/50-cloud.init.yaml)
+  * /etc/netplan/[50-cloud-init.yaml](../yaml/50-cloud-init.yaml)
 * 追加説明
-  * [renderer: networkd](../yaml/50-cloud.init.yaml#L3) is used.
-    * netplan can use networkd and NetworkManager as renderer. But link-local option will be inefficient if renderer is NetworkManager and dhcp4 option is true(see [link-local option in netplan reference](https://netplan.io/reference/#common-properties-for-all-device-types).) So if use link-local option, renderer must be networkd.
+  * [renderer: networkd](../yaml/50-cloud-init.yaml#L3)を使用.
+    * netplanの場合，rendererにnetworkdとNetworkManagerを選択できる．しかしNetworkManagerの場合，dhcp4: trueにするとlink-localのオプションが無効化されてしまう([link-local option in netplan reference](https://netplan.io/reference/#common-properties-for-all-device-types)を参照)．よってnetworkdを使用する．
 
 設定後，以下のコマンドでネットワークの設定を有効化．
 

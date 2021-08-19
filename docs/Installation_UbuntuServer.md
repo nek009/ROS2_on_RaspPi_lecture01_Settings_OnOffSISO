@@ -61,9 +61,9 @@ A system will request to change a password, so set new password.
 ## Set up network
 
 * target file
-  * /etc/netplan/[50-cloud-init.yaml](../yaml/50-cloud.init.yaml)
+  * /etc/netplan/[50-cloud-init.yaml](../yaml/50-cloud-init.yaml)
 * a brief explanation
-  * [renderer: networkd](../yaml/50-cloud.init.yaml#L3) is used.
+  * [renderer: networkd](../yaml/50-cloud-init.yaml#L3) is used.
     * netplan can use networkd and NetworkManager as renderer. But link-local option will be inefficient if renderer is NetworkManager and dhcp4 option is true(see [link-local option in netplan reference](https://netplan.io/reference/#common-properties-for-all-device-types).) So if use link-local option, renderer must be networkd.
 
 after setting up, enable it by following command.
