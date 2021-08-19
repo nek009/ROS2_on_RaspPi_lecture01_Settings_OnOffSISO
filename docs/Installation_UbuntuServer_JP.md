@@ -63,7 +63,7 @@ microSDカード，HDMI, キーボード，マウスをRapberry Piにつなげ�
 $ sudo netplan apply
 ```
 
-## avahi-daemon(と諸々)のインストール
+## avahi-daemonのインストール(と諸々)
 
 ```shell
 $ sudo apt install avahi-daemon ssh git
@@ -115,7 +115,7 @@ $ sudo hostnamectl set-hostname <new hostname>
   * 変更後
     * preserve_hostname: true
 
-### 時刻合わせ
+## 時刻合わせ
 
 * 設定ファイル
   * /etc/systemd/timesyncd.conf
@@ -132,7 +132,7 @@ $ sudo timedatectl set-timezone Asia/Tokyo
 $ sudo systemctl restart systemd-timesyncd.service
 ```
 
-### ロケール・キーボードの設定
+## ロケール・キーボードの設定
 [ここ](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0564)を参考に．
 
 ```shell
