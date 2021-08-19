@@ -125,6 +125,8 @@ NTP=ntp.nict.jp
 FallbackNTP=ntp.ubuntu.com # 複数指定する場合はスペース区切りで続けて記述
 ```
 
+設定ファイルを編集後，以下のコマンドを実行．
+
 ```shell
 $ timedatectl set-ntp true
 $ sudo systemctl enable systemd-timesyncd.service
