@@ -62,3 +62,29 @@ microSDカード，HDMI, キーボード，マウスをRapberry Piにつなげ�
 ```shell
 $ sudo netplan apply
 ```
+
+## avahi-daemon(と諸々)のインストール
+
+```shell
+$ sudo apt install avahi-daemon ssh git
+$ sudo systemctl enable avahi-daemon
+$ sudo systemctl start avahi-daemon
+```
+
+これで/etc/hostnameに格納されているホスト名でアクセスできる．
+正確には，ホスト名+".local"でアクセスできる．
+まず以下のコマンドで名前を確認してみる．
+
+```shell
+$ cat /etc/hostname
+raspberry pi
+```
+
+この例の場合，ホスト名が`raspberrypi`となる．
+よって，以下のコマンドでアクセスできる．
+
+```shell
+$ ssh ubuntu@raspberrypi.local
+```
+
+ここで，`.`(ピリオド，ドット)が名前の一部として使えないことに注意する．例えば，`raspberry.pi`のホスト名はだめ(`raspberry.pi.local`ではアクセスできない)．

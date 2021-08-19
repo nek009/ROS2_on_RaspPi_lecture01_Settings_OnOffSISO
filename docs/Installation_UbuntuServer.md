@@ -71,3 +71,28 @@ after setting up, enable it by following command.
 ```shell
 $ sudo netplan apply
 ```
+
+## Install avahi-daemon, and misc
+
+```shell
+$ sudo apt install avahi-daemon ssh git
+$ sudo systemctl enable avahi-daemon
+$ sudo systemctl start avahi-daemon
+```
+
+Now you can connect Rasp. Pi by a name of /etc/hostname + ".local".
+First check Rasp. Pi name by following command.
+
+```shell
+$ cat /etc/hostname
+raspberry pi
+```
+
+In this example, hostname is `raspberrypi`.
+So you can connect this Rasp. Pi by following command.
+
+```shell
+$ ssh ubuntu@raspberrypi.local
+```
+
+Here, `.`(period, dot) cannot be used as a part of hostname, ex. `rapberry.pi` cannot be used so cannot connect it by `raspberry.pi.local`.
