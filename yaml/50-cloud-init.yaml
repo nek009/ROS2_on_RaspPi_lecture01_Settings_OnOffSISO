@@ -1,0 +1,15 @@
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        eth0:
+            dhcp4: true
+            dhcp6: true # if not use ipv6, set false
+            link-local: [ ipv4, ipv6 ] # if not use ipv6, ok only [ ipv4 ]
+    wifis:
+        wlan0:
+            dhcp4: true
+            dhcp6: true # if not use ipv6, set false
+            access-points: # plural ssids can be registered
+                "myssid":
+                    password: "mypass"

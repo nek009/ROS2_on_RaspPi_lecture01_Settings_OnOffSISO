@@ -14,7 +14,51 @@ Rasp. Piの場合，使用状況が色々変わる．企業や研究室のよう
 無線LANの場合，IPアドレスが自動で割り振られる状況(DHCP serverがある状況)のみを想定する．
 IPアドレスが自動で割り振られない場合，そもそも無線サービスが使えないと考える．
 
-* 設定
+* 設定方針
   * IPアドレスはDHCP serverによって設定されるものとする．
   * DNS serverがないことも考え，avahi-daemonを使って名前解決をする．
     * DNS serverも使えれば使う．
+
+### 有線LANの場合
+有線LANの場合，以下の状況が考えられる．
+
+1. ケーブルが抜けている．
+1. DHCP serverがないネットワークに接続しちゃった
+1. DHCP serverがあってちゃんとIPアドレスなどが割り振られるネットワークに接続できた．
+1. 固定IPアドレスを設定しなければならないネットワークに接続した．
+
+このうち4番目の場合は考えず(個別の環境なので適切に設定してね，とまるなげ)，1番目から3番目までに対応できるように考える．
+特にRaspberry Piを持ち運ぶ場合，動的にネットワーク環境が変わることもあるので，出来るだけ対応できるようにしたい．
+
+* 設定方針
+  * link-localによるプライベートIP(169.254.0.0/16)の割り当て．
+  * DNS serverがないことも考え，avahi-daemonを使って名前解決をする．
+    * DNS serverも使えれば使う．
+
+# Ubuntu Serverのインストール・設定
+## microSDカードへのインストール
+[このページ](https://ubuntu.com/download/raspberry-pi)の"Follow our desktop or server tutorials."にある[server](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview)をクリックして手順通りにインストール．<br>
+Raspberry Pi Imagerを使用してインストールすることになるが，特に気を付ける点は以下のところ．
+
+* CHOOSE OS
+  * "Other general purpose OS"を選択
+    * "Ubuntu Server 20.04.2 LTS(RPi 3/4/400) 64bit"を選択
+
+## Ubuntu Serverの起動
+microSDカード，HDMI, キーボード，マウスをRapberry Piにつなげて起動すると，Ubuntu Serverのインストールと基本設定が行われるので，数分待つ．
+最初の起動後，ID: ubuntu, password: ubuntuでログイン可．
+ログイン後，すぐにパスワードの変更を求められるので，新しいパスワードを設定する．
+
+## ネットワークの設定
+
+* 設定ファイル
+  * /etc/netplan/[50-cloud-init.yaml](../yaml/50-cloud.init.yaml)
+* 追加説明
+  * [renderer: networkd](../yaml/50-cloud.init.yaml#L3) is used.
+    * netplan can use networkd and NetworkManager as renderer. But link-local option will be inefficient if renderer is NetworkManager and dhcp4 option is true(see [link-local option in netplan reference](https://netplan.io/reference/#common-properties-for-all-device-types).) So if use link-local option, renderer must be networkd.
+
+設定後，以下のコマンドでネットワークの設定を有効化．
+
+```shell
+$ sudo netplan apply
+```
