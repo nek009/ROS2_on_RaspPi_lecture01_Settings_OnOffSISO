@@ -35,3 +35,11 @@ $ sudo apt install ~nros-<distro>-rqt*
 
 Information of python3-colcon-common-extensions is [here](https://colcon.readthedocs.io/en/released/user/installation.html).<br>
 `~nros-<distro>-rqt*` is useful packages but is not essential.
+
+# Tips
+## Tutorial after the installation
+
+The most important thing is to read and do tutorial in official page.
+Almost all basic information is in it.
+
+* [tutorial in official page for foxy](https://docs.ros.org/en/foxy/Tutorials.html)
