@@ -9,19 +9,36 @@ pigpio ライブラリに関する情報をまとめたページ．
 [公式ページ](http://abyz.me.uk/rpi/pigpio/index.html)の[Download & Install page](http://abyz.me.uk/rpi/pigpio/download.html)を見ながらインストール.
 
 # pigpioを用いたプログラミング
+ここではGPIO pinのコントロールをするために，pigpioライブラリを直接使用するのではなくpigpioデーモンを通して使用する．
+その理由としては，複数人でRaspberry Piを共有したり，作成したプログラムを実行するのにrootにならなければいけないことを避けたいからである．
+
+## pigpioデーモンの準備
+以下のファイルを準備する．
+
+* /etc/systemd/system/[pigpiod.service](../system_setting/pigpiod.service)
+
+pigpioデーモンが使用できるオプションは[ここ](http://abyz.me.uk/rpi/pigpio/pigpiod.html)を参照のこと．<br>
+pigpioデーモンを有効に有効にするために以下を実行する．
+
+```shell
+$ sudo systemctl enable pigpiod
+$ sudo systemctl start pigpiod
+$ sudo systemctl status pigpiod
+```
+
 ## 基本的な使い方
 
-[pigpio C I/F](http://abyz.me.uk/rpi/pigpio/cif.html)のページを見ながら作成すれば大体大丈夫．基本的な情報としては以下の通り．
+[pigpiod C I/F](http://abyz.me.uk/rpi/pigpio/pdif2.html)のページを見ながら作成すれば大体大丈夫．基本的な情報としては以下の通り．
 
 * ヘッダ情報
-  * #include <pigpio.h>
+  * #include <pigpiod_if2.h>
 * ビルド/コンパイル情報
   * オプション
     * `-Wall -pthread`
   * リンカ
-    * `-lpigpio`
+    * `-lpigpiod_if2`
     * `-lrt`
-      * [pigpio C I/F](http://abyz.me.uk/rpi/pigpio/cif.html)ページでは使用されているが不必要．libgccに含まれたとかなんとか．
+      * [pigpiod C I/F](http://abyz.me.uk/rpi/pigpio/pdif2.html)ページでは使用されているが不必要．libgccに含まれたとかなんとか．
 
 ## ROS2での使用
 ROS2でpigpioを使用する場合，CMakeLists.txtは以下のように書く(関係する部分を抜粋)．
@@ -31,11 +48,11 @@ target_compile_options(<ターゲット名>
   PUBLIC -Wall -pthread
 )
 target_link_libraries(<ターゲット名>
-  pigpio
+  pigpiod_if2
 )
 ```
 
-## GPIOピンについて
+# GPIOピンについて
 Raspberry Piの場合，チップによるピンの数え方と基板上からみたピンの数え方が違う．pigpioではチップによるピンの数え方をしているので注意．例えば，下図の右下のピンを使いたい場合は40ではなく21の数字を指定することになる．
 
 ![gpio_assin](./figs/gpio_pin.png)
