@@ -6,8 +6,13 @@ This is not repository for program sources, is lecture series to use ROS2 on Ras
 ## Final goal
 
 # Table of Contents
+## For administrator
 
 1. [Installation of Ubuntu Server on Raspberry Pi](docs/Installation_of_UbuntuServer_on_RaspberryPi.md)
 1. [Installation of ROS2 on Raspberry Pi](docs/Installation_of_ROS2_on_RaspberryPi.md)
 1. [Installation of pigpio library](docs/Installation_of_pigpio_library.md)
 1. [Addition of general users](docs/Addition_of_general_users.md)
+
+## For general user
+
+1. [Initial settings](docs/Initial_settings_of_general_users.md)
