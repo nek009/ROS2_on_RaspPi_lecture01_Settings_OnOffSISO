@@ -2,7 +2,7 @@
 Description=pigpio daemon
 
 [Service]
-ExecStart=/usr/local/bin/pigpiod -l
+ExecStart=/usr/local/bin/pigpiod
 ExecStop=/bin/systemctl kill pigpiod
 Type=forking
 
