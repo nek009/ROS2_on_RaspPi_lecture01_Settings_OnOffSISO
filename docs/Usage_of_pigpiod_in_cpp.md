@@ -4,8 +4,6 @@
 Here, a way to control hardware through pigpiod is introduced briefly.
 Target language is c++.<br>
 Before show the way, a circuit which is used in this repository is shown in figure below.
-The circuit is for a case which two Rasp. Pi are used, but there is no problem if only one Rasp. pi is used.
-In the case of one Rasp. Pi, just make a circuit aroud `pi1` and ignore `pi2`, that means it is ok not to change a circuit on a bread board and not to change connections related to `pi1`.
 
 ![target circuit](figs/led_switch.png)
 
