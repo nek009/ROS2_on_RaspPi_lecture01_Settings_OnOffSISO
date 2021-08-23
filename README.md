@@ -9,7 +9,8 @@ Final goal of learning in this repository is to learn a way to treat hard wares 
 Target circuit is shown in figure below.
 Rasp. Pi named `pi1` controls a led and Rasp. Pi named `pi2` senses a state of a switch.
 Both Rasp. Pi are connected each by network.
-The examination is to control a led by a state of a switch on ROS2 system.
+The examination is to control a led by a state of a switch on ROS2 system.<br>
+If there is only one Rasp. Pi, it is ok to replace `pi2` with `pi1` and to read this repository with only one Rasp. Pi.
 
 <img src="docs/figs/led_switch.png" width="500">
 
