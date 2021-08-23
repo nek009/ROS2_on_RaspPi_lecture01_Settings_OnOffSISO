@@ -11,7 +11,7 @@ Rasp. Pi named `pi1` controls a led and Rasp. Pi named `pi2` senses a state of a
 Both Rasp. Pi are connected each by network.
 The examination is to control a led by a state of a switch on ROS2 system.
 
-<img src="docs/figs/led_switch.png" width="200">
+<img src="docs/figs/led_switch.png" width="600">
 ![target circuit](docs/figs/led_switch.png){:height="40%"}
 
 # Table of Contents
