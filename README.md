@@ -3,7 +3,15 @@
 # Overview
 
 This is not repository for program sources, is lecture series to use ROS2 on Raspberry Pi or similar Single Board Computer installed Ubuntu.
+
 ## Final goal
+Final goal of learning in this repository is to learn a way to treat hard wares by ROS2.
+Target circuit is shown in figure below.
+Rasp. Pi named `pi1` controls a led and Rasp. Pi named `pi2` senses a state of a switch.
+Both Rasp. Pi are connected each by network.
+The examination is to control a led by a state of a switch on ROS2 system.
+
+![target circuit](docs/figs/led_switch.png)
 
 # Table of Contents
 ## For administrator
