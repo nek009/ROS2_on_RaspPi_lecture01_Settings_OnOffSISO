@@ -7,7 +7,7 @@ Before show the way, a circuit which is used in this repository is shown in figu
 The circuit is for a case which two Rasp. Pi are used, but there is no problem if only one Rasp. pi is used.
 In the case of one Rasp. Pi, just make a circuit aroud `pi1` and ignore `pi2`, that means it is ok not to change a circuit on a bread board and not to change connections related to `pi1`.
 
-![target circuit](docs/figs/led_switch.png)
+![target circuit](figs/led_switch.png)
 
 # Making the circuit
 At first, make the circuit.
@@ -18,14 +18,10 @@ Important sections are `ESSENTIAL` and `BASIC`.<br>
 
 The rough flow of a program is as follwos.
 
-1. Initialize to use pigpiod
-  * pigpio_start( )
-1. Set GPIO modes
-  * set_mode( )
-1. Use GPIOs
-  * gpio_read( ), gpio_write( )
-1. End to use pigpiod
-  * pigpio_stop( )
+1. Initialize to use pigpiod(pigpio_start)
+1. Set GPIO modes(set_mode)
+1. Use GPIOs(gpio_read, gpio_write)
+1. End to use pigpiod(pigpio_stop)
 
 pigpio daemon can treat plural Rasp. Pi through network, so commands or functions must be given which Rasp. Pi is targeted.
 To do that, a return value of pigpio_start function is used.

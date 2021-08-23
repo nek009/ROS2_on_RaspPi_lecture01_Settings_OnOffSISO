@@ -7,7 +7,7 @@
 図では二つのRaspberry Piを使用しているが，一つしかない場合はpi2を無視してもらって大丈夫．
 ブレッドボード上の回路などを変更する必要はない．
 
-![target circuit](docs/figs/led_switch.png)
+![target circuit](figs/led_switch.png)
 
 # 回路の作成
 図のとおり，回路を作成する．
@@ -17,14 +17,10 @@
 特に，`ESSENTIAL`と`BASIC`は重要となる．<br>
 プログラムの流れは以下のようになる．
 
-1. pigpiodを使用するための初期化
-  * pigpio_start( )
-1. 使用するGPIOのモード設定
-  * set_mode( )
-1. GPIOの利用
-  * gpio_read( ), gpio_write( )
-1. pigpiodの終了処理
-  * pigpio_stop( )
+1. pigpiodを使用するための初期化(pigpio_start)
+1. 使用するGPIOのモード設定(set_mode)
+1. GPIOの利用(gpio_read), gpio_write)
+1. pigpiodの終了処理(pigpio_stop)
 
 pigpioデーモンはネットワークを通して複数のRasperry Piを扱うことができる．
 そのため，どのRaspberry Piへの指令なのか区別する必要があり，pigpio_start関数の返り値でそれを行っている．
