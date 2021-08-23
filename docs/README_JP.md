@@ -23,3 +23,4 @@ ROS2を使用してハードウェアを使用する方法を学ぶ．
 ## 一般ユーザ向け
 
 1. [初期設定](Initial_settings_of_general_users_JP.md)
+1. [C++でのpigpiodの使用方法](Usage_of_pigpiod_in_cpp_JP.md)

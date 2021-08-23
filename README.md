@@ -26,3 +26,4 @@ Please replace `pi2` with `pi1` read this repository with only one Rasp. Pi.
 ## For general user
 
 1. [Initial settings](docs/Initial_settings_of_general_users.md)
+1. [Usage of pigpiod in C++](docs/Usage_of_pigpiod_in_cpp.md)
