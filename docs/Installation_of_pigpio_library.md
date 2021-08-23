@@ -15,7 +15,7 @@ This repository uses pigpio Daemon to control GPIO pin, not use pigpio directory
 
 Prepare the following file.
 
-* /etc/systemd/system/[pigpiod.service](../system_setting/pigpiod.service)
+* /etc/systemd/system/[pigpiod.service](../system_settings/pigpiod.service)
 
 The detailed options which pigpio daemon can use is [here](http://abyz.me.uk/rpi/pigpio/pigpiod.html).<br>
 And execute following to activate pigpio daemon.

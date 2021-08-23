@@ -15,7 +15,7 @@ pigpio ライブラリに関する情報をまとめたページ．
 ## pigpioデーモンの準備
 以下のファイルを準備する．
 
-* /etc/systemd/system/[pigpiod.service](../system_setting/pigpiod.service)
+* /etc/systemd/system/[pigpiod.service](../system_settings/pigpiod.service)
 
 pigpioデーモンが使用できるオプションは[ここ](http://abyz.me.uk/rpi/pigpio/pigpiod.html)を参照のこと．<br>
 pigpioデーモンを有効に有効にするために以下を実行する．
