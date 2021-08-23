@@ -8,8 +8,7 @@ ROS2を使用してハードウェアを使用する方法を学ぶ．
 Raspberry Pi `pi1`によってledを点灯/消灯させ，Raspberry Pi `pi2`でスイッチの状態を認識する．
 `pi1`と`pi2`はネットワークでつながっており，ROS2を使用してスイッチによってledをコントロールさせることを考える．
 
-<img src="figs/led_switch.png" width="40%">
-![target circuit](figs/led_switch.png){:height="40%"}
+<img src="figs/led_switch.png" width="500">
 
 # 目次
 ## 管理者向け
