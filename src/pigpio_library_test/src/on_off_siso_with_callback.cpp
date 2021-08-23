@@ -16,8 +16,10 @@ int main(int argc, char* argv[]){
   set_mode(pi, 21, PI_OUTPUT);
   // Set GPIO26 INPUT
   set_mode(pi, 26, PI_INPUT);
+  // Set callback function for GPIO26
   callback(pi, 26, EITHER_EDGE, callback_push_switch);
 
+  // Process callback function during wait 10 sec.
   sleep(10);
 
   pigpio_stop(pi);
