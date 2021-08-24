@@ -18,7 +18,7 @@ $ echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
 
 ## Setting by editing .bashrc
 Set up .bashrc by editing .bashrc, ex by using vim or nano.
-Following is excerpt related parts from .bashrc.
+Following is a excerpt of related parts from .bashrc.
 
 ```bashrc
 
