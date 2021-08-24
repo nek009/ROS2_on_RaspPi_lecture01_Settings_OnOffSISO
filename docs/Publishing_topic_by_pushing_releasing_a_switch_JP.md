@@ -50,7 +50,7 @@ $ ros2 interface show gpio_messages/msg/GpioState
 上記のメッセージを使用してpublisherノードを作成する．
 
 * トピック名
-  * gpio_state
+  * pub_gpio_state
 
 ## ROS2プログラミング
 ### ROS2 packageの準備
@@ -107,7 +107,7 @@ $ ros2 topic echo /pub_gpio_state
 ここでは，上記のパッケージで，作成したノードをベースにコンポーネントを作成する．
 
 * トピック名
-  * gpio_state
+  * pub_gpio_state
 
 ## ROS2プログラミング
 ### visibility.hの準備

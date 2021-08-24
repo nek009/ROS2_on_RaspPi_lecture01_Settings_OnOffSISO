@@ -53,7 +53,7 @@ $ ros2 interface show gpio_messages/msg/GpioState
 By using the above message, publisher node publishes a state of a GPIO.
 
 * topic name
-  * gpio_state
+  * pub_gpio_state
 
 ## ROS2 coding
 ### Preparation of ROS2 package for node
@@ -111,7 +111,7 @@ In addition to this, components can be executed by using ROS2 command `ros2 comp
 Here, how to create a component node in same package based on the above node.
 
 * topic name
-  * gpio_state
+  * pub_gpio_state
 
 ## ROS2 coding
 ### Preparation of visibility.h
