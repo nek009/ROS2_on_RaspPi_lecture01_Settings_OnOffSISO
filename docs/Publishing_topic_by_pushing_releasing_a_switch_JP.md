@@ -69,9 +69,8 @@ $ ros2 pkg create gpio_state_recognition_nodes --build-type ament_cmake --depend
 ### package.xmlとCMakeLists.txtの編集
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/[package.xml](../src/gpio_state_recognition_nodes/package.xml)
   * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
-    * [# For target以下24-49行目](../src/gpio_state_recognition_nodes/CMakeLists.txt#L23-L48)を追加
+    * [# For target以下24-49行目](../src/gpio_state_recognition_nodes/CMakeLists.txt#L24-L49)を追加
 
 ## ビルドと確認
 ### ビルド
