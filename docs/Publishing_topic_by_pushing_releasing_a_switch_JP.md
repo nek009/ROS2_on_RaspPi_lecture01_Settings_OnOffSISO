@@ -127,8 +127,8 @@ $ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visi
 ### プログラミング
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state__component_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state__component_node.cpp)
+  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state_component_node.hpp)
+  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_component_node.cpp)
 
 ### package.xmlとCMakeLists.txtの編集
 

@@ -5,7 +5,6 @@
 
 namespace ros2rasp_lecture {
 
-
 PubGpioStateNode::PubGpioStateNode(
   const std::string& name_space,
   const rclcpp::NodeOptions& options

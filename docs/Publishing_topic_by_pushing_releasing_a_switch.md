@@ -69,10 +69,9 @@ $ ros2 pkg create gpio_state_recognition_nodes --build-type ament_cmake --depend
   * gpio_state_recognition_nodes/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.hpp)
   * gpio_state_recognition_nodes/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.cpp)
 
-### Modified package.xml and CMakeLists.txt
+### Modified CMakeLists.txt
 
 * target file
-  * gpio_state_recognition_nodes/[package.xml](../src/gpio_state_recognition_nodes/package.xml)
   * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
     * Add [below of # For target, lines 24-49](../src/gpio_state_recognition_nodes/CMakeLists.txt#L24-L49)
 
@@ -129,8 +128,8 @@ $ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visi
 ### Coding
 
 * target file
-  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state__component_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state__component_node.cpp)
+  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state_component_node.hpp)
+  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_component_node.cpp)
 
 ### Modified package.xml and CMakeLists.txt
 
