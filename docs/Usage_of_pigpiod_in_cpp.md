@@ -44,16 +44,16 @@ If releasing a switch, a led will turn on.
 
 <details><summary>Initialize to use pigpiod</summary><div>
 
-[Line from 7 to 11 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L7-L10) shows an initialization which connect to target Rasp.Pi and return identifier. The arguments which are NULL means it means to connect localhost via 8888 port.
+[Line 7-11 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L7-L10) shows an initialization which connect to target Rasp.Pi and return identifier. The arguments which are NULL means it means to connect localhost via 8888 port.
 </div></details>
 <details><summary>Set GPIO modes</summary><div>
 
-[Line from 13 to 16 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L13-L16) shows the settings of gpio mode.
+[Line 13-16 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L13-L16) shows the settings of gpio mode.
 [Line 14 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L14) shows GPIO21 which is connected to a led is set as OUTPUT, and [Line 16 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L16) shows GPIO26 which is connected to a switch is set as INPUT.
 </div></details>
 <details><summary>Use GPIOs</summary><div>
 
-[Line from 18 to 22 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L18-L22) controls a led by a state of a switch.<br>
+[Line 18-22 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L18-L22) controls a led by a state of a switch.<br>
 [Line 19 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L19) reads a state of GPIO26 and store it in `input`.
 Here, by a pull-down resistor for GPIO26, a state of GPIO26 becomes HIGH and `input` becomes `1` if a switch is pushed and one becomes LOW and `input` becomes `0` if it is released.<br>
 [Line 20 in on_off_siso.cpp](../src/pigpio_library_test/src/on_off_siso.cpp#L20) controls an output of GPIO21 by `input` value.
@@ -83,3 +83,14 @@ If pushing a switch, a led will turn off.
 If releasing a switch, a led will turn on.
 
 ### Explanation
+
+In the Simple usage, a loop and a sleep function are used to check a state of a switch, a state of GPIO26.
+If sleeping 10 seconds in a loop, delay to sense a switch be pushed is about 10 sec. at most.<br>
+In this section, a way to sense a state of a GPIO by callback function to reduce this delay is introduced.
+This way doesn't process a command line by line.
+It observes a state of a GPIO in the background and call a callback function dynamically when a state of a GPIO changes.
+The flow of the way is 1) to make a callback function which codes a procedure when a state of a GPIO changes, and 2) to register it, that means to connect it with a GPIO which must be observed and with a way to change which a signal is rising, falling or both.<br>
+[Line 5 in on_off_siso_with_callback.cpp](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L5) declares a callback function and [Line 29-32 in on_off_siso_with_callback.cpp](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L29-L32) are implementation of it.
+And [Line 20 in on_off_siso_with_callback.cpp](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L20) registers a callback function.
+By this line, GPIO26 will be observed and a callback function named callback_push_switch will be executed when GPIO26 changes.
+[Line 23 in on_off_siso_with_callback.cpp](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L20) makes a procedure sleep 10 sec. to observe GPIO26 and execute callback_push_switch when it changes.

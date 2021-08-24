@@ -50,24 +50,24 @@ $ ./on_off_siso
 
 [on_off_siso.cppの13行目から16行目](../src/pigpio_library_test/src/on_off_siso.cpp#L13-L16)でGPIOの使用モードを指定している．<br>
 GPIO21にはledがつながっており，`出力`として使用する．
-そこで[14行目](../src/pigpio_library_test/src/on_off_siso.cpp#L14)にてGPIO21を出力(OUTPUT)として設定している．<br>
+そこで[on_off_siso.cppの14行目](../src/pigpio_library_test/src/on_off_siso.cpp#L14)にてGPIO21を出力(OUTPUT)として設定している．<br>
 またGPIO26にはスイッチがつながっており，`入力`として使用する．
-同じように[16行目](../src/pigpio_library_test/src/on_off_siso.cpp#L16)にてGPIO26を入力(INPUT)として設定している．
+同じように[on_off_siso.cppの16行目](../src/pigpio_library_test/src/on_off_siso.cpp#L16)にてGPIO26を入力(INPUT)として設定している．
 </div></details>
 <details><summary>GPIOの利用</summary><div>
 
 [on_off_siso.cppの18行目から22行目](../src/pigpio_library_test/src/on_off_siso.cpp#L18-L22)でスイッチの状態によってledの点灯/消灯を制御している．<br>
-[19行目](../src/pigpio_library_test/src/on_off_siso.cpp#L19)ではGPIO26の状態を読んで，変数`input`に保存している．
+[on_off_siso.cppの19行目](../src/pigpio_library_test/src/on_off_siso.cpp#L19)ではGPIO26の状態を読んで，変数`input`に保存している．
 ここでGPIO26のプルダウン抵抗によって，スイッチが押されるとGPIO26はHIGHになり`input`に`1`が保存される．
 またスイッチが離されるとGPIO26はLOWになり，`input`には`0`が保存される．<br>
-[20行目](../src/pigpio_library_test/src/on_off_siso.cpp#L20)では`input`の値がGPIO21に出力される．
+[on_off_siso.cppの20行目](../src/pigpio_library_test/src/on_off_siso.cpp#L20)では`input`の値がGPIO21に出力される．
 ここでGPIO21が`0`の時ledが点灯し`1`の時ledは消灯する回路となっている(シンクロジック)．
 そのため，スイッチを押すと`input`が`1`になりGPIO21が`1`を出力し，ledが消灯する．<br>
-また[21行目](../src/pigpio_library_test/src/on_off_siso.cpp#L21)にて1秒間スリープし，ledの状態を保っている．
+また[on_off_siso.cppの21行目](../src/pigpio_library_test/src/on_off_siso.cpp#L21)にて1秒間スリープし，ledの状態を保っている．
 </div></details>
 <details><summary>pigpiodの終了処理</summary><div>
 
-[24行目](../src/pigpio_library_test/src/on_off_siso.cpp#L24)にてpigpiodの終了処理をしている．
+[on_off_siso.cppの24行目](../src/pigpio_library_test/src/on_off_siso.cpp#L24)にてpigpiodの終了処理をしている．
 </div></details>
 
 ## callback関数を使用した方法
@@ -86,3 +86,15 @@ $ ./on_off_siso_with_callback
 実行後，スイッチを押すとledが消灯し，スイッチを離すとledが点灯する．
 
 ### 説明
+簡単な使用方法ではループとsleep関数を使ってスイッチ(GPIO26)の状態を認識しledを点灯/消灯させるプログラムを紹介した．
+ここでもしsleep(10)とし10秒間停止させていたら，スイッチが押されてから認識するまで最大で10秒近く遅延が生じる．<br>
+この章では遅延をなるべく少なくするためにcallback関数を用いた状態認識の方法を紹介する．
+callback関数を用いた方法では，プログラムを一行一行実行するのではなく，背後でGPIOの状態を監視して変化があれば動的にcallback関数を呼び出す．
+流れとしては，1)GPIOの状態が変化したときにやってほしい処理をcallback関数として作成し，2)callback関数を登録する．callback関数の登録では，監視対象のGPIOをどれにするか，そのGPIOがどのように変化したときにcallback関数を呼び出すか(信号がLOWからHIGHか，HIGHからLOWか，その両方か)を設定する．<br>
+
+
+[on_off_siso_with_callback.cppの5行目](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L5)ではcallback関数の宣言を行っており，[on_off_siso_with_callback.cppの29-32行目](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L29-L32)で実装を行っている．
+そして[on_off_siso_with_callback.cppの20行目](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L20)にてcallback関数の登録をしている．
+この行にて，GPIO26を監視対象として，信号の変化があったときにcallback_push_switch関数を呼び出すように設定している．
+プログラムが終了すると監視も終わるので，[on_off_siso_with_callback.cppの23行目](../src/pigpio_library_test/src/on_off_siso_with_callback.cpp#L20)で10秒停止している．
+この間，バックグラウンドでGPIOの監視が行われ，スイッチが押されたり離されたりするごとにcallback_push_switch関数が呼ばれいている．
