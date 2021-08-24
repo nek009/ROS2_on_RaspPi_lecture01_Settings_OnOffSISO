@@ -21,6 +21,12 @@ The examination is to control a led by a state of a switch on ROS2 system.<br>
 1. [Addition of general users](docs/Addition_of_general_users.md)
 
 ## For general user
+### Preparation
 
 1. [Initial settings](docs/Initial_settings_of_general_users.md)
 1. [Usage of pigpiod in C++](docs/Usage_of_pigpiod_in_cpp.md)
+
+### ROS2 programming
+Before starting, read [tutorial in official page for foxy](https://docs.ros.org/en/foxy/Tutorials.html).
+
+1. [Publishing topic by pushing/releasing a switch](docs/Publishing_topic_by_pushing_releasing_a_switch.md)
