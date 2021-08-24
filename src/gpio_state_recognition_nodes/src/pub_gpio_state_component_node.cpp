@@ -6,7 +6,6 @@
 
 namespace ros2rasp_lecture {
 
-
 PubGpioStateComponentNode::PubGpioStateComponentNode(
   const rclcpp::NodeOptions& options
 ) : PubGpioStateComponentNode("", options){
