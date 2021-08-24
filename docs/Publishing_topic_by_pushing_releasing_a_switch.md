@@ -184,7 +184,7 @@ $ ros2 pkg create gpio_state_recognition_target  --build-type ament_cmake --depe
 ### Modified package.xml and CMakeLists.txt
 
 * target file
-  * gpio_state_recognition_target/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
+  * gpio_state_recognition_target/[CMakeLists.txt](../src/gpio_state_recognition_target/CMakeLists.txt)
 
 ### Build
 
