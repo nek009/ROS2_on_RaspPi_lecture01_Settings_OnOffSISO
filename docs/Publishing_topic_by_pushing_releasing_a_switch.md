@@ -16,27 +16,27 @@ By using the above message, publisher node publishes a state of a GPIO.
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_state_recognition_nodes --build-type ament_cmake --dependencies rclcpp gpio_messages
+$ ros2 pkg create gpio_state_recognition_node --build-type ament_cmake --dependencies rclcpp gpio_msgs
 ```
 
 ### Coding
 
 * target file
-  * gpio_state_recognition_nodes/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.hpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.cpp)
 
 ### Modified CMakeLists.txt
 
 * target file
-  * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
-    * Add [below of # For target, lines 24-49](../src/gpio_state_recognition_nodes/CMakeLists.txt#L24-L49)
+  * gpio_state_recognition_node/[CMakeLists.txt](../src/gpio_state_recognition_node/CMakeLists.txt)
+    * Add [below of # For target, lines 24-49](../src/gpio_state_recognition_node/CMakeLists.txt#L24-L49)
 
 ## Build & confirmation
 ### Build
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_state_recognition_nodes
+$ colcon build --symlink-install --packages-up-to gpio_state_recognition_node
 $ . install/local_setup.bash
 ```
 
@@ -47,7 +47,7 @@ In term1, execute the node to observe a state of switch, a state of GPIO26.
 
 ```shell
 $ . install/local_setup.bash
-$ ros2 run gpio_state_recognition_nodes pub_gpio_state_target
+$ ros2 run gpio_state_recognition_node pub_gpio_state_target
 ```
 
 In term2, show topics by ros2 command and confirm that it publishes messages according to a state of a switch.
@@ -76,7 +76,7 @@ A point where custome it is the string `MINIMAL_COMPOSITION`.
 Here I change it to `ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE`, which is made by combining `namespace` and `class name` with `_`.
 
 ```shell
-$ cd gpio_state_recognition_nodes/include/gpio_state_recognition_nodes
+$ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
 $ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visibility.h
 ```
@@ -84,24 +84,24 @@ $ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visi
 ### Coding
 
 * target file
-  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state_component_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_component_node.cpp)
+  * gpio_state_recognition_node/include/gpio_state_recognition_node/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_node/include/gpio_state_recognition_node/pub_gpio_state_component_node.hpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
 
 ### Modified package.xml and CMakeLists.txt
 
 * target file
-  * gpio_state_recognition_nodes/[package.xml](../src/gpio_state_recognition_nodes/package.xml)
+  * gpio_state_recognition_node/[package.xml](../src/gpio_state_recognition_node/package.xml)
     * Add \<depend\>rclcpp_components\</depend\>
-  * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
+  * gpio_state_recognition_node/[CMakeLists.txt](../src/gpio_state_recognition_node/CMakeLists.txt)
     * Add find_package(rclcpp_components REQUIRED)
-    * Add [below of # For component, lines 50-100](../src/gpio_state_recognition_nodes/CMakeLists.txt#L50-L100)
+    * Add [below of # For component, lines 50-100](../src/gpio_state_recognition_node/CMakeLists.txt#L50-L100)
 
 ## Build & confirmation
 ### Build
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_state_recognition_nodes
+$ colcon build --symlink-install --packages-up-to gpio_state_recognition_node
 $ . install/local_setup.bash
 ```
 
@@ -112,7 +112,7 @@ In term1, execute the node to observe a state of switch, a state of GPIO26.
 
 ```shell
 $ . install/local_setup.bash
-$ ros2 component standalone gpio_state_recognition_nodes ros2rasp_lecture::PubGpioStateComponentNode
+$ ros2 component standalone gpio_state_recognition_node ros2rasp_lecture::PubGpioStateComponentNode
 ```
 
 In term2, show topics by ros2 command and confirm that it publishes messages according to a state of a switch.
@@ -129,7 +129,7 @@ The bellow is a way to use a component(shared library correctly).
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_state_recognition_target  --build-type ament_cmake --dependencies rclcpp gpio_state_recognition_nodes
+$ ros2 pkg create gpio_state_recognition_target  --build-type ament_cmake --dependencies rclcpp gpio_state_recognition_node
 ```
 
 ### Coding
