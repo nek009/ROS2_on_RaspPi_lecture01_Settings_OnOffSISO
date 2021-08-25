@@ -24,6 +24,7 @@ $ ros2 pkg create gpio_state_recognition_node --build-type ament_cmake --depende
 * target file
   * gpio_state_recognition_node/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.hpp)
   * gpio_state_recognition_node/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_main.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_main.cpp)
 
 ### Modified CMakeLists.txt
 
@@ -73,12 +74,12 @@ Here, how to create a component node in same package based on the above node.
 ### Preparation of visibility.h
 It is boring to create visibility.h from scratch, so it make by DL [visibility.h in official github](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h) and customizing it.<br>
 A point where custome it is the string `MINIMAL_COMPOSITION`.
-Here I change it to `ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE`, which is made by combining `namespace` and `class name` with `_`.
+Here I change it to `ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE`, which is made by combining `namespace` and `package name` with `_`.
 
 ```shell
 $ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visibility.h
+$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE/g visibility.h
 ```
 
 ### Coding

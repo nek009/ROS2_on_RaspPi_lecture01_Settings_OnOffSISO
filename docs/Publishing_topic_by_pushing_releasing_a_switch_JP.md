@@ -23,6 +23,7 @@ $ ros2 pkg create gpio_state_recognition_node --build-type ament_cmake --depende
 * 対象ファイル
   * gpio_state_recognition_node/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.hpp)
   * gpio_state_recognition_node/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_main.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_main.cpp)
 
 ### package.xmlとCMakeLists.txtの編集
 
@@ -72,13 +73,13 @@ $ ros2 topic echo /pub_gpio_state
 visibility.hはスクラッチから作成するのは大変．
 なので[公式のgithub上のvisibility.h](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h)からDLしカスタマイズして使用する．<br>
 カスタマイズする点は，文字列`MINIMAL_COMPOSITION`である．
-これを自分用の文字列`ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE`にする．
-ちなみに`namespace`と`class name`を`_`でつなげて作っている．
+これを自分用の文字列`ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE`にする．
+ちなみに`namespace`と`package name`を`_`でつなげて作っている．
 
 ```shell
 $ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visibility.h
+$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE/g visibility.h
 ```
 
 ### プログラミング
