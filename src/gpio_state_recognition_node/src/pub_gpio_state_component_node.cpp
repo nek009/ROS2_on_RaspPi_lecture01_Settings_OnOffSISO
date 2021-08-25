@@ -14,18 +14,16 @@ PubGpioStateComponentNode::PubGpioStateComponentNode(
 PubGpioStateComponentNode::PubGpioStateComponentNode(
   const std::string& name_space,
   const rclcpp::NodeOptions& options
-) : Node("pub_gpio_state_node", name_space, options){
+) : Node("pub_gpio_state_component_node", name_space, options){
   using namespace std::chrono_literals;
 
-  RCLCPP_INFO(this->get_logger(), "=== Information: pub_gpio_state_node ===");
+  RCLCPP_INFO(this->get_logger(), "=== Information: pub_gpio_state_component_node ===");
   // Set up rasp. pi
   pi_ = pigpio_start(NULL,NULL);
   if(pi_ < 0){
     throw std::runtime_error("Failed to init gpio.");
   }
   RCLCPP_INFO(this->get_logger(), "Initialize: OK");
-  set_mode(pi_, 21, PI_OUTPUT);
-  RCLCPP_INFO(this->get_logger(), "Set up GPIO21 as an output: OK");
   set_mode(pi_, 26, PI_INPUT);
   RCLCPP_INFO(this->get_logger(), "Set up GPIO26 as an input: OK");
 

@@ -18,8 +18,6 @@ PubGpioStateNode::PubGpioStateNode(
     throw std::runtime_error("Failed to init gpio.");
   }
   RCLCPP_INFO(this->get_logger(), "Initialize: OK");
-  set_mode(pi_, 21, PI_OUTPUT);
-  RCLCPP_INFO(this->get_logger(), "Set up GPIO21 as an output: OK");
   set_mode(pi_, 26, PI_INPUT);
   RCLCPP_INFO(this->get_logger(), "Set up GPIO26 as an input: OK");
 

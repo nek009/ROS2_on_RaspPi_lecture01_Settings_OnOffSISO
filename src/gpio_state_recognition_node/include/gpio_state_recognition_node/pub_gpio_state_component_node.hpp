@@ -7,16 +7,16 @@ namespace ros2rasp_lecture{
 
 class PubGpioStateComponentNode : public rclcpp::Node{
 public:
-  ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE_PUBLIC
+  GPIO_STATE_RECOGNITION_NODE_PUBLIC
   PubGpioStateComponentNode(
     const rclcpp::NodeOptions& options = rclcpp::NodeOptions()
   );
-  ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE_PUBLIC
+  GPIO_STATE_RECOGNITION_NODE_PUBLIC
   PubGpioStateComponentNode(
     const std::string& name_space,
     const rclcpp::NodeOptions& options = rclcpp::NodeOptions()
   );
-  ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE_PUBLIC
+  GPIO_STATE_RECOGNITION_NODE_PUBLIC
   ~PubGpioStateComponentNode();
 private:
   // related to rasp. pi
