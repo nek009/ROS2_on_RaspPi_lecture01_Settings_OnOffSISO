@@ -21,28 +21,28 @@ So following information is used as a published message.
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_messages --build-type ament_cmake
-$ mkdir gpio_messages/msg
+$ ros2 pkg create gpio_msgs --build-type ament_cmake
+$ mkdir gpio_msgs/msg
 ```
 
 ### Creation of message file
 Create a following file for a message.
 
 * target file
-  * gpio_messages/msg/[GpioState.msg](../src/gpio_messages/msg/GpioState.msg)
+  * gpio_msgs/msg/[GpioState.msg](../src/gpio_msgs/msg/GpioState.msg)
 
 ### Modified package.xml and CMakeLists.txt
 
 * target file
-  * gpio_messages/[package.xml](../src/gpio_messages/package.xml)
-  * gpio_messages/[CMakeLists.txt](../src/gpio_messages/CMakeLists.txt)
+  * gpio_msgs/[package.xml](../src/gpio_msgs/package.xml)
+  * gpio_msgs/[CMakeLists.txt](../src/gpio_msgs/CMakeLists.txt)
 
 ## Build & confirmation
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_messages
+$ colcon build --symlink-install --packages-up-to gpio_msgs
 $ . install/local_setup.bash
 $ ros2 interface list # confirm that difined message is shown
-$ ros2 interface show gpio_messages/msg/GpioState
+$ ros2 interface show gpio_msgs/msg/GpioState
 ```

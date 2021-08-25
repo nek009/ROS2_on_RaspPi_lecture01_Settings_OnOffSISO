@@ -15,27 +15,28 @@
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_state_recognition_nodes --build-type ament_cmake --dependencies rclcpp gpio_messages
+$ ros2 pkg create gpio_state_recognition_node --build-type ament_cmake --dependencies rclcpp gpio_msgs
 ```
 
 ### プログラミング
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_node.hpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.hpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_main.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_main.cpp)
 
 ### package.xmlとCMakeLists.txtの編集
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
-    * [# For target以下24-49行目](../src/gpio_state_recognition_nodes/CMakeLists.txt#L24-L49)を追加
+  * gpio_state_recognition_node/[CMakeLists.txt](../src/gpio_state_recognition_node/CMakeLists.txt)
+    * [# For target以下24-49行目](../src/gpio_state_recognition_node/CMakeLists.txt#L24-L49)を追加
 
 ## ビルドと確認
 ### ビルド
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_state_recognition_nodes
+$ colcon build --symlink-install --packages-up-to gpio_state_recognition_node
 $ . install/local_setup.bash
 ```
 
@@ -45,7 +46,7 @@ term1でノードを実行する．
 
 ```shell
 $ . install/local_setup.bash
-$ ros2 run gpio_state_recognition_nodes pub_gpio_state_target
+$ ros2 run gpio_state_recognition_node pub_gpio_state_target
 ```
 
 term2でノードがメッセージを発信しているか，ROS2コマンドで確認する．
@@ -72,36 +73,36 @@ $ ros2 topic echo /pub_gpio_state
 visibility.hはスクラッチから作成するのは大変．
 なので[公式のgithub上のvisibility.h](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h)からDLしカスタマイズして使用する．<br>
 カスタマイズする点は，文字列`MINIMAL_COMPOSITION`である．
-これを自分用の文字列`ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE`にする．
-ちなみに`namespace`と`class name`を`_`でつなげて作っている．
+これを自分用の文字列`ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE`にする．
+ちなみに`namespace`と`package name`を`_`でつなげて作っている．
 
 ```shell
-$ cd gpio_state_recognition_nodes/include/gpio_state_recognition_nodes
+$ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_PUBGPIOSTATECOMPONENTNODE/g visibility.h
+$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE/g visibility.h
 ```
 
 ### プログラミング
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_nodes/include/gpio_state_recognition_nodes/pub_gpio_state_component_node.hpp)
-  * gpio_state_recognition_nodes/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_nodes/src/pub_gpio_state_component_node.cpp)
+  * gpio_state_recognition_node/include/gpio_state_recognition_node/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_node/include/gpio_state_recognition_node/pub_gpio_state_component_node.hpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
 
 ### package.xmlとCMakeLists.txtの編集
 
 * 対象ファイル
-  * gpio_state_recognition_nodes/[package.xml](../src/gpio_state_recognition_nodes/package.xml)
+  * gpio_state_recognition_node/[package.xml](../src/gpio_state_recognition_node/package.xml)
     * \<depend\>rclcpp_components\</depend\>を追加
-  * gpio_state_recognition_nodes/[CMakeLists.txt](../src/gpio_state_recognition_nodes/CMakeLists.txt)
+  * gpio_state_recognition_node/[CMakeLists.txt](../src/gpio_state_recognition_node/CMakeLists.txt)
     * find_package(rclcpp_components REQUIRED)を追加
-    * [# For component以下50-100行目](../src/gpio_state_recognition_nodes/CMakeLists.txt#L50-L100)
+    * [# For component以下50-100行目](../src/gpio_state_recognition_node/CMakeLists.txt#L50-L100)
 
 ## ビルドと確認
 ### ビルド
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_state_recognition_nodes
+$ colcon build --symlink-install --packages-up-to gpio_state_recognition_node
 $ . install/local_setup.bash
 ```
 
@@ -111,7 +112,7 @@ term1でノードを実行する．
 
 ```shell
 $ . install/local_setup.bash
-$ ros2 component standalone gpio_state_recognition_nodes ros2rasp_lecture::PubGpioStateComponentNode
+$ ros2 component standalone gpio_state_recognition_node ros2rasp_lecture::PubGpioStateComponentNode
 ```
 
 term2でノードがメッセージを発信しているか，ROS2コマンドで確認する．
@@ -128,7 +129,7 @@ $ ros2 topic echo /pub_gpio_state
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_state_recognition_target  --build-type ament_cmake --dependencies rclcpp gpio_state_recognition_nodes
+$ ros2 pkg create gpio_state_recognition_target  --build-type ament_cmake --dependencies rclcpp gpio_state_recognition_node
 ```
 
 ### プログラミング
