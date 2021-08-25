@@ -21,27 +21,27 @@ ROS2のpublisherノードはトピックメッセージを発信する．
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_messages --build-type ament_cmake
-$ mkdir gpio_messages/msg
+$ ros2 pkg create gpio_msgs --build-type ament_cmake
+$ mkdir gpio_msgs/msg
 ```
 
 ### メッセージファイルの作成
 以下のファイルを作成する．
 
 * 対象ファイル
-  * gpio_messages/msg/[GpioState.msg](../src/gpio_messages/msg/GpioState.msg)
+  * gpio_msgs/msg/[GpioState.msg](../src/gpio_msgs/msg/GpioState.msg)
 
 ### package.xmlとCMakeLists.txtの編集
 * 対象ファイル
-  * gpio_messages/[package.xml](../src/gpio_messages/package.xml)
-  * gpio_messages/[CMakeLists.txt](../src/gpio_messages/CMakeLists.txt)
+  * gpio_msgs/[package.xml](../src/gpio_msgs/package.xml)
+  * gpio_msgs/[CMakeLists.txt](../src/gpio_msgs/CMakeLists.txt)
 
 ## ビルド & 確認
 
 ```shell
 $ colcon_cd
-$ colcon build --symlink-install --packages-up-to gpio_messages
+$ colcon build --symlink-install --packages-up-to gpio_msgs
 $ . install/local_setup.bash
 $ ros2 interface list # confirm that difined message is shown
-$ ros2 interface show gpio_messages/msg/GpioState
+$ ros2 interface show gpio_msgs/msg/GpioState
 ```
