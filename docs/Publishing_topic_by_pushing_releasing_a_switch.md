@@ -86,7 +86,7 @@ $ sed -i s/MINIMAL_COMPOSITION/GPIO_STATE_RECOGNITION_NODE/g visibility.h
 
 * target file
   * gpio_state_recognition_node/include/gpio_state_recognition_node/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_node/include/gpio_state_recognition_node/pub_gpio_state_component_node.hpp)
-  * gpio_state_recognition_node/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
 
 ### Modified package.xml and CMakeLists.txt
 
@@ -153,7 +153,6 @@ $ . install/local_setup.bash
 
 ### Confirmation
 Open two terminal, named term1 and term2.
-
 In term1, execute the node to observe a state of switch, a state of GPIO26.
 
 ```shell

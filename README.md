@@ -29,5 +29,6 @@ The examination is to control a led by a state of a switch on ROS2 system.<br>
 ### ROS2 programming
 Before starting, read [tutorial in official page for foxy](https://docs.ros.org/en/foxy/Tutorials.html).
 
-1. [Create a topic message for a state of a switch](docs/Creation_of_a_topic_message_for_a_state_of_a_switch.md)
+1. [Creation of a topic message for a state of a switch](docs/Creation_of_a_topic_message_for_a_state_of_a_switch.md)
 1. [Publishing topic by pushing/releasing a switch](docs/Publishing_topic_by_pushing_releasing_a_switch.md)
+1. [Subscribing topic related to a switch](docs/Subscribing_topic_related_to_a_switch.md)
