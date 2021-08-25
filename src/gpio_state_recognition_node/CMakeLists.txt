@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(gpio_state_recognition_nodes)
+project(gpio_state_recognition_node)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -19,7 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
-find_package(gpio_messages REQUIRED)
+find_package(gpio_msgs REQUIRED)
 
 # For target
 add_executable(pub_gpio_state_target
@@ -28,7 +28,7 @@ add_executable(pub_gpio_state_target
 )
 ament_target_dependencies(pub_gpio_state_target
   rclcpp
-  gpio_messages
+  gpio_msgs
 )
 target_compile_options(pub_gpio_state_target
   PUBLIC -Wall -pthread
@@ -65,7 +65,7 @@ target_link_libraries(pub_gpio_state_component_node
 )
 ament_target_dependencies(pub_gpio_state_component_node
   rclcpp
-  gpio_messages
+  gpio_msgs
   rclcpp_components
 )
 target_include_directories(pub_gpio_state_component_node
@@ -82,7 +82,7 @@ endif()
 ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(
   rclcpp
-  gpio_messages
+  gpio_msgs
   rclcpp_components
 )
 

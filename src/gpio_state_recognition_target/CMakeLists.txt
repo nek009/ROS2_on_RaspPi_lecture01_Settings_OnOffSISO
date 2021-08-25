@@ -18,14 +18,14 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(gpio_state_recognition_nodes REQUIRED)
+find_package(gpio_state_recognition_node REQUIRED)
 
 add_executable(pub_gpio_state_recognition_target
   src/pub_gpio_state_recognition_target.cpp
 )
 ament_target_dependencies(pub_gpio_state_recognition_target
   rclcpp
-  gpio_state_recognition_nodes
+  gpio_state_recognition_node
 )
 
 target_include_directories(pub_gpio_state_recognition_target

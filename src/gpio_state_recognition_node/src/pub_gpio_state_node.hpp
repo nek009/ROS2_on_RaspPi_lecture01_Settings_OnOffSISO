@@ -1,6 +1,6 @@
 #pragma once
 #include <rclcpp/rclcpp.hpp>
-#include "gpio_messages/msg/gpio_state.hpp"
+#include "gpio_msgs/msg/gpio_state.hpp"
 
 namespace ros2rasp_lecture{
 
@@ -15,7 +15,7 @@ private:
   // related to rasp. pi
   int pi_;
   // for publishing
-  rclcpp::Publisher<gpio_messages::msg::GpioState>::SharedPtr pub_;
+  rclcpp::Publisher<gpio_msgs::msg::GpioState>::SharedPtr pub_;
   rclcpp::TimerBase::SharedPtr timer_;
 };
 
