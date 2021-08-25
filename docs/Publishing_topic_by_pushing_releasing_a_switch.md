@@ -2,8 +2,8 @@
 
 # Overview
 
-Here, ROS2 publisher node which publish a topic message of a state of a switch will be made.
-The topic message created in [here](Create_a_topic_message_for_a_state_of_a_switch.md) is used.
+Here, ROS2 publisher node which publishes a topic message of a state of a switch will be made.
+The topic message created in [here](Creation_of_a_topic_message_for_a_state_of_a_switch.md) is used.
 
 # Publisher node
 By using the above message, publisher node publishes a state of a GPIO.
@@ -74,19 +74,19 @@ Here, how to create a component node in same package based on the above node.
 ### Preparation of visibility.h
 It is boring to create visibility.h from scratch, so it make by DL [visibility.h in official github](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h) and customizing it.<br>
 A point where custome it is the string `MINIMAL_COMPOSITION`.
-Here I change it to `ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE`, which is made by combining `namespace` and `package name` with `_`.
+Here I change it to `GPIO_STATE_RECOGNITION_NODE`, which is made by `package name`.
 
 ```shell
 $ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE/g visibility.h
+$ sed -i s/MINIMAL_COMPOSITION/GPIO_STATE_RECOGNITION_NODE/g visibility.h
 ```
 
 ### Coding
 
 * target file
   * gpio_state_recognition_node/include/gpio_state_recognition_node/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_node/include/gpio_state_recognition_node/pub_gpio_state_component_node.hpp)
-  * gpio_state_recognition_node/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
 
 ### Modified package.xml and CMakeLists.txt
 
@@ -153,7 +153,6 @@ $ . install/local_setup.bash
 
 ### Confirmation
 Open two terminal, named term1 and term2.
-
 In term1, execute the node to observe a state of switch, a state of GPIO26.
 
 ```shell

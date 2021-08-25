@@ -2,7 +2,7 @@
 
 # 概要
 スイッチの状態に関するメッセージをpublishするROS2 publisherノードの作成を行う．
-トピックメッセージは[ここ](Create_a_topic_message_for_a_state_of_a_switch_JP.md)で作成したものを用いる．
+トピックメッセージは[ここ](Creation_of_a_topic_message_for_a_state_of_a_switch_JP.md)で作成したものを用いる．
 
 # Publisherノード
 上記のメッセージを使用してpublisherノードを作成する．
@@ -73,20 +73,20 @@ $ ros2 topic echo /pub_gpio_state
 visibility.hはスクラッチから作成するのは大変．
 なので[公式のgithub上のvisibility.h](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h)からDLしカスタマイズして使用する．<br>
 カスタマイズする点は，文字列`MINIMAL_COMPOSITION`である．
-これを自分用の文字列`ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE`にする．
-ちなみに`namespace`と`package name`を`_`でつなげて作っている．
+これを自分用の文字列`GPIO_STATE_RECOGNITION_NODE`にする．
+ちなみに`package name`から名前付けしている．
 
 ```shell
 $ cd gpio_state_recognition_node/include/gpio_state_recognition_node
 $ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/ROS2RASP_LECTURE_GPIOSTATERECOGNITIONNODE/g visibility.h
+$ sed -i s/MINIMAL_COMPOSITION/GPIO_STATE_RECOGNITION_NODE/g visibility.h
 ```
 
 ### プログラミング
 
 * 対象ファイル
   * gpio_state_recognition_node/include/gpio_state_recognition_node/[pub_gpio_state_component_node.hpp](../src/gpio_state_recognition_node/include/gpio_state_recognition_node/pub_gpio_state_component_node.hpp)
-  * gpio_state_recognition_node/src/[pub_gpio_state__component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
+  * gpio_state_recognition_node/src/[pub_gpio_state_component_node.cpp](../src/gpio_state_recognition_node/src/pub_gpio_state_component_node.cpp)
 
 ### package.xmlとCMakeLists.txtの編集
 
