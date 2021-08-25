@@ -1,4 +1,4 @@
-[for Japanese:日本語](docs/README_JP.md)
+[for Japanese:日本語](README_JP.md)
 
 # Overview
 

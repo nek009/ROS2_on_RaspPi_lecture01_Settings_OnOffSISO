@@ -1,4 +1,4 @@
-[Topページへ](README_JP.md)
+[Topページへ](../README_JP.md)
 
 # 概要
 ここでは特にROS2用の設定について述べる．

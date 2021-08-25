@@ -1,4 +1,4 @@
-[Topページへ](README_JP.md)
+[Topページへ](../README_JP.md)
 
 # 概要
 ROS2 nodeの作成を行う．
