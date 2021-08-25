@@ -75,6 +75,7 @@ $ sudo netplan apply
 ## Install avahi-daemon, and misc
 
 ```shell
+$ sudo add-apt-repository ppa:git-core/ppa; sudo apt update -y
 $ sudo apt install avahi-daemon ssh git
 $ sudo systemctl enable avahi-daemon
 $ sudo systemctl start avahi-daemon
@@ -134,7 +135,7 @@ In this case, modify a setting to change a hostname to new name as follows.
 And set up net and time-zone by following commands.
 
 ```shell
-$ timedatectl set-ntp true # set up ntp based on timesyncd.conf
+$ sudo timedatectl set-ntp true # set up ntp based on timesyncd.conf
 $ sudo systemctl enable systemd-timesyncd.service
 $ sudo timedatectl set-timezone <your time zone>
 $ sudo systemctl restart systemd-timesyncd.service
@@ -145,3 +146,8 @@ $ sudo systemctl restart systemd-timesyncd.service
 ```shell
 $ sudo apt update && sudo apt upgrade -y
 ```
+
+# Way to access Rasp. Pi
+Here, I don't consider that Pi is used by keyboard and monitor connected to Rasp. Pi directory through conformation of programs in this repository, do consider that ssh on Windows, Mac or other Linux is used to access.
+To comfirm programs in this repository, plural terminals are needed.
+Please use terminals by plural ssh connections.

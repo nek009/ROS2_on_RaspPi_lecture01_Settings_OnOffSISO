@@ -11,12 +11,14 @@
 
 ## 簡単な設定方法
 以下のコマンドを実行して設定．
-
+ここで，もし他の人と共用で使用しないなら，`ROS_DOMAIN_ID`は`0`か`1`にしておけば良い．
+詳細な情報は[こちら](https://docs.ros.org/en/foxy/Tutorials/Configuring-ROS2-Environment.html#the-ros-domain-id-variable)を参照のこと．
 
 ```shell
 $ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 $ echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
 $ echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
+$ echo "export ROS_DOMAIN_ID=<unique number for you>" >> ~/.bashrc
 ```
 
 ## ちょっと凝った設定方法
@@ -39,4 +41,5 @@ if [ -f /opt/ros/$DISTRO/setup.bash ]; then
     source /opt/ros/$DISTRO/setup.bash
 fi
 
+export ROS_DOMAIN_ID=<unique number for you>
 ```

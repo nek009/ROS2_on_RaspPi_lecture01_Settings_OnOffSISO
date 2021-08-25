@@ -66,6 +66,7 @@ $ sudo netplan apply
 ## avahi-daemonのインストール(と諸々)
 
 ```shell
+$ sudo add-apt-repository ppa:git-core/ppa; sudo apt update -y
 $ sudo apt install avahi-daemon ssh git
 $ sudo systemctl enable avahi-daemon
 $ sudo systemctl start avahi-daemon
@@ -128,7 +129,7 @@ FallbackNTP=ntp.ubuntu.com # 複数指定する場合はスペース区切りで
 設定ファイルを編集後，以下のコマンドを実行．
 
 ```shell
-$ timedatectl set-ntp true
+$ sudo timedatectl set-ntp true
 $ sudo systemctl enable systemd-timesyncd.service
 $ sudo timedatectl set-timezone Asia/Tokyo
 $ sudo systemctl restart systemd-timesyncd.service
@@ -143,7 +144,7 @@ $ sudo dpkg-reconfigure -f noninteractive locales
 $ echo "LANG=ja_JP.UTF-8" | sudo tee /etc/default/locale
 ```
 
-* 設定ファイル
+* 設定ファイル: /etc/default/keyboard
   * XKBMODEL="jp106"に変更
     * いらないかも？
   * XKBLAYOUT="jp"に変更
@@ -160,6 +161,11 @@ $ sudo dpkg-reconfigure -f noninteractive keyboard-configuration
 ```shell
 $ sudo apt update && sudo apt upgrade -y
 ```
+
+# Way to access Rasp. Pi
+ここで，このリポジトリのプログラムの確認のために，直接キーボードやモニターをつないでRaspberry Piを使うことは考えない．
+その代わり，WindowsやMac, Linuxからのssh接続を使用する．
+プログラムの確認のために複数の端末が必要になる時があるが，複数のssh接続で対応することとする．
 
 # その他
 [Raspberry PiのSDカードが壊れた！寿命を延ばす方法 5+1選!【運用編を追加】](https://iot-plus.net/make/raspi/extend-sdcard-lifetime-5plus1/)

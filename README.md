@@ -32,3 +32,5 @@ Before starting, read [tutorial in official page for foxy](https://docs.ros.org/
 1. [Creation of a topic message for a state of a switch](docs/Creation_of_a_topic_message_for_a_state_of_a_switch.md)
 1. [Publishing topic by pushing/releasing a switch](docs/Publishing_topic_by_pushing_releasing_a_switch.md)
 1. [Subscribing topic related to a switch](docs/Subscribing_topic_related_to_a_switch.md)
+1. [Publishing and Subscribing on plural Raspberry Pi](docs/Publishing_and_Subscribing_on_plural_Raspberry_Pi.md)
+  * For people having two Raspberry Pis.

@@ -30,3 +30,5 @@ ROS2を使用してハードウェアを使用する方法を学ぶ．
 1. [スイッチの状態に関するtopicメッセージの作成](docs/Creation_of_a_topic_message_for_a_state_of_a_switch_JP.md)
 1. [スイッチのOn/OffによるTopicのpublish](docs/Publishing_topic_by_pushing_releasing_a_switch_JP.md)
 1. [スイッチのOn/OffによるTopicのSubscribe](docs/Subscribing_topic_related_to_a_switch_JP.md)
+1. [複数のRaspberry PiでのPublishingとSubscribing](docs/Publishing_and_Subscribing_on_plural_Raspberry_Pi.md)
+  * もしRaspberr Piを二つ持ってるなら．．．
