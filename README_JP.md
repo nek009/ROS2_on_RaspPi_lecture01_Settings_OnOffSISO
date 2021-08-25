@@ -27,5 +27,5 @@ ROS2を使用してハードウェアを使用する方法を学ぶ．
 ### ROS2プログラミング
 始める前に[公式のチュートリアル for foxy](https://docs.ros.org/en/foxy/Tutorials.html)を読むこと．
 
-1. [スイッチの状態に関するtopicメッセージの作成](docs/Create_a_topic_message_for_a_state_of_a_switch_JP.md)
+1. [スイッチの状態に関するtopicメッセージの作成](docs/Creation_of_a_topic_message_for_a_state_of_a_switch_JP.md)
 1. [スイッチのOn/OffによるTopicのpublish](docs/Publishing_topic_by_pushing_releasing_a_switch_JP.md)
