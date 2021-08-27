@@ -69,8 +69,8 @@ $ ros2 topic echo /pub_gpio_state
   * pub_gpio_state
 
 ## ROS2プログラミング
-### visibility.hの準備
-visibility.hはスクラッチから作成するのは大変．
+### visibility_control.hの準備
+visibility_control.hはスクラッチから作成するのは大変．
 なので[公式のgithub上のvisibility.h](https://github.com/ros2/examples/blob/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h)からDLしカスタマイズして使用する．<br>
 カスタマイズする点は，文字列`MINIMAL_COMPOSITION`である．
 これを自分用の文字列`GPIO_STATE_RECOGNITION_NODE`にする．
@@ -78,8 +78,8 @@ visibility.hはスクラッチから作成するのは大変．
 
 ```shell
 $ cd gpio_state_recognition_node/include/gpio_state_recognition_node
-$ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/GPIO_STATE_RECOGNITION_NODE/g visibility.h
+$ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility_control.h
+$ sed -i s/MINIMAL_COMPOSITION/GPIO_STATE_RECOGNITION_NODE/g visibility_control.h
 ```
 
 ### プログラミング

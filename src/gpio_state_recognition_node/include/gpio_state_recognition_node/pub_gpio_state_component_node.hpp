@@ -1,7 +1,7 @@
 #pragma once
 #include <rclcpp/rclcpp.hpp>
 #include "gpio_msgs/msg/gpio_state.hpp"
-#include "visibility.h"
+#include "visibility_control.h"
 
 namespace ros2rasp_lecture{
 

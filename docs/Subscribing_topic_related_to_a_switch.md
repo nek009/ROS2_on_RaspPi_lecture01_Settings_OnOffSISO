@@ -13,22 +13,36 @@ Target node subscribes the above message through topic named below.
   * pub_gpio_state
 
 ## ROS2 coding as component
+Here, a node is created as library by the option `--library-name`, so some parts are prepared, ex. visibility_control.h is prepared.
+
 ### Preparation of ROS2 package for node
 
 ```shell
 $ colcon_cd
-$ ros2 pkg create gpio_led_control_node --build-type ament_cmake --dependencies rclcpp rclcpp_components gpio_msgs
+$ ros2 pkg create gpio_led_control_node --build-type ament_cmake --dependencies rclcpp rclcpp_components gpio_msgs --library-name gpio_led_control_component_node
 ```
 
-### Preparation of visibility.h
-visibility.h is prepared by following command.
-Here, `MINIMAL_COMOTION` chnages to `GPIO_LED_CONTROL_NODE`.
+Following files are created.
 
-```shell
-$ cd gpio_led_control_node/include/gpio_led_control_node
-$ curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/composition/minimal_composition/include/minimal_composition/visibility.h > visibility.h
-$ sed -i s/MINIMAL_COMPOSITION/GPIO_LED_CONTROL_NODE/g visibility.h
-```
+- gpio_led_control_node/
+  - include/gpio_led_control_node/visibility_control.h
+  - include/gpio_led_control_node/gpio_led_control_component_node.hpp
+  - src/gpio_led_control_component_node.cpp
+  - CMakeLists.txt
+  - package.xml
+
+And some names are desiced as follows.
+
+- package name
+  - gpio_led_control_node
+- namespace
+  - gpio_led_control_node
+- macros for all symbols you need to export, used in header files
+  - GPIO_LED_CONTROL_NODE_PUBLIC
+- library name
+  - gpio_led_control_component_node
+- class name
+  - GpioLedControlComponentNode
 
 ### Coding
 
